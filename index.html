@@ -8,7 +8,7 @@
 <body>
 
     <script>
-        
+    
         // Create a function that returns one of rock, paper, or scissors at random
         function computerSelection() {
             let choices = ['rock','paper','scissors']
@@ -18,6 +18,7 @@
         // Set score values to be changed depending on the results
         let scoreComputer = 0;
         let scorePlayer = 0;
+        
 
         /* Create a function that compares the user inputted choice and the computer selection, 
         provides a message, and changes the score */
@@ -28,22 +29,19 @@
             || (player === 'paper' && computer === 'scissors')
             || (player === 'rock' && computer === 'paper')) {
                 console.log(`You lose! ${computer} beats ${player}.`);
-                scoreComputer += 1;
+                scoreComputer++;
             } else {
                 console.log(`You win! ${player} beats ${computer}.`);
-                scorePlayer += 1;
+                scorePlayer++;
             }
         }
 
         /* Create a game function that asks for user input, runs the game 5 times, returns a score each
         time, and tells the player who won at the end*/
         function game() {
-            for (i = 0; i < 5; i++) {
-                let playerChoice = prompt("Please make a selection");
-                let playerSelection = playerChoice.toLowerCase();
-                playRound(playerSelection,computerSelection());
-                console.log(`Your Score: ${scorePlayer} \nComputer Score: ${scoreComputer}`);
-            }
+            let playerSelection = prompt("Please make a selection").toLowerCase();
+            playRound(playerSelection,computerSelection());
+            console.log(`Your Score: ${scorePlayer} \nComputer Score: ${scoreComputer}`);
             if (scorePlayer>scoreComputer) {
                 console.log(`You won!`)
             } else if (scorePlayer<scoreComputer) {
