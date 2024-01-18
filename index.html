@@ -4,56 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="script.js" defer></script>
 </head>
 <body>
+  
+    <div>
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+    </div>
 
-    <script>
-    
-        // Create a function that returns one of rock, paper, or scissors at random
-        function computerSelection() {
-            let choices = ['rock','paper','scissors']
-            return choices[Math.floor(Math.random() * choices.length)]
-        };
-
-        // Set score values to be changed depending on the results
-        let scoreComputer = 0;
-        let scorePlayer = 0;
-        
-
-        /* Create a function that compares the user inputted choice and the computer selection, 
-        provides a message, and changes the score */
-        function playRound(player, computer) {
-            if (player === computer) {
-                console.log(`Draw! Please play again`);
-            } else if ((player === 'scissors' && computer === 'rock') 
-            || (player === 'paper' && computer === 'scissors')
-            || (player === 'rock' && computer === 'paper')) {
-                console.log(`You lose! ${computer} beats ${player}.`);
-                scoreComputer++;
-            } else {
-                console.log(`You win! ${player} beats ${computer}.`);
-                scorePlayer++;
-            }
-        }
-
-        /* Create a game function that asks for user input, runs the game 5 times, returns a score each
-        time, and tells the player who won at the end*/
-        function game() {
-            let playerSelection = prompt("Please make a selection").toLowerCase();
-            playRound(playerSelection,computerSelection());
-            console.log(`Your Score: ${scorePlayer} \nComputer Score: ${scoreComputer}`);
-            if (scorePlayer>scoreComputer) {
-                console.log(`You won!`)
-            } else if (scorePlayer<scoreComputer) {
-                console.log(`You lost.`)
-            } else {
-                console.log(`You drew.`)
-            };
-        }
-
-        game();
-
-    </script>
+    <div class="result"></div>
+    <div class="scoreboard"></div>
 
 </body>
 </html>
